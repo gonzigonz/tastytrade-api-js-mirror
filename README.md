@@ -113,7 +113,7 @@ global.window = { WebSocket, setTimeout, clearTimeout }
 ```
 
 ## Building Locally
-`npm run build`
+`npm install && npm run build`
 Outputs everything to `dist/`
 
 ## Running tests locally
@@ -130,6 +130,7 @@ These values should match whatever username/password/account you set up in the t
 
 ## Running example app
 ```sh
+npm install
 npm run build
 cd examples/
 npm install

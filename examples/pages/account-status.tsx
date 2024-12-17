@@ -28,11 +28,22 @@ export default function AccountStatus() {
         </div>
       )
     }
+    
+    const inlineDisplay = {
+      border: "1px solid darkblue",
+      borderRadius: "3px",
+      fontSize: "16px",
+      color: "#fff",
+      backgroundColor: "#54a0dd",
+    }
   
   return (
   <div>
       <div className='text-lg font-bold mb-4'>Account Statuses for {context.accountNumbers![0]}</div>
       {errorMessage && <div>{errorMessage}</div>}
+        <h2>Gonz:</h2>
+        <pre style={inlineDisplay}>{JSON.stringify(accountStatus, null, 2)}</pre>
+        <h2>TastTrade:</h2>
       <ObjectPropertiesTable item={accountStatus}/>
   </div>
   );

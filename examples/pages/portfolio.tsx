@@ -33,10 +33,20 @@ export default function Positions() {
   const renderPositionRow = (position: any) => (
     <div>{position['quantity-direction']} {position.quantity} {position.symbol} {position['instrument-type']}</div>
   )
+  const inlineDisplay = {
+    border: "1px solid darkblue",
+    borderRadius: "3px",
+    fontSize: "16px",
+    color: "#fff",
+    backgroundColor: "#54a0dd",
+  }
 
   return (
   <div>
       <div className='text-lg font-bold mb-4'>Positions for {context.accountNumbers[0]}</div>
+        <h2>Gonz:</h2>
+        <pre style={inlineDisplay}>{JSON.stringify(positions, null, 2)}</pre>
+        <h2>TastTrade:</h2>
         <CustomTable rows={positions} renderItem={renderPositionRow}/>
   </div>
   );

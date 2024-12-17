@@ -55,40 +55,58 @@ export default function symbolSearch() {
       if (_.isNil(symbolData)) {
         return <p>No results...</p>
       }
+    
+      const inlineDisplay = {
+        border: "1px solid darkblue",
+        borderRadius: "3px",
+        fontSize: "16px",
+        color: "#fff",
+        backgroundColor: "#54a0dd",
+      }
 
       return(
-          <table className="min-w-full divide-y divide-gray-200">
-              <thead>
-                <tr className="bg-gray-50">
-                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Key</th>
-                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Value</th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {Object.entries(symbolData).map(([key, value], index) => (
-                  <tr key={index}>
-                    <td className="px-6 py-4 whitespace-nowrap">{value.symbol}</td>
-                    <td className="px-6 py-4 whitespace-nowrap">{value.description}</td>
-                  </tr>
-                ))}
-              </tbody>
-          </table>
+        <div>
+          {Object.entries(symbolData).map(([key, value]) => (
+            <div>
+              <h2>{key}: {value.symbol}</h2>
+              <pre style={inlineDisplay}>{JSON.stringify(value, null, 2)}</pre>
+            </div>
+          ))}
+        </div>
+          // <table className="min-w-full divide-y divide-gray-200">
+          //     <thead>
+          //       <tr className="bg-gray-50">
+          //         <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Key</th>
+          //         <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Value</th>
+          //       </tr>
+          //     </thead>
+          //     <tbody className="bg-white divide-y divide-gray-200">
+          //       {Object.entries(symbolData).map(([key, value], index) => (
+          //         <tr key={index}>
+          //           <td className="px-6 py-4 whitespace-nowrap">{value.symbol}</td>
+          //           <td className="px-6 py-4 whitespace-nowrap">{value.description}</td>
+          //         </tr>
+          //       ))}
+          //     </tbody>
+          // </table>
       )
     }
 
   return (
-    <div className='w-3/12'>
-        <h2 className="text-center mb-4">Symbol Search</h2>
-        <div>Enter symbol</div>
-        <input
-            type='text'
-            className="p-2 w-full border border-gray-400 mb-2"
-            onKeyUp={handleKeyPress}
-            required
-          />
-        <Button onClick={handleSearch} title="Search" />
-        {error && <div>{error}</div>}
-        {renderResults()}
+    <div>
+      <div className='w-3/12'>
+          <h2 className="text-center mb-4">Symbol Search</h2>
+          <div>Enter symbol</div>
+          <input
+              type='text'
+              className="p-2 w-full border border-gray-400 mb-2"
+              onKeyUp={handleKeyPress}
+              required
+            />
+          <Button onClick={handleSearch} title="Search" />
+      </div>
+      {error && <div>{error}</div>}
+      {renderResults()}
     </div>
   )
 };

@@ -4,8 +4,10 @@ import TastytradeClient, { LogLevel, MarketDataStreamer } from "tastytrade-api"
 import { makeAutoObservable } from 'mobx';
 import _ from 'lodash'
 
-const SANDBOX_BASE_URL = 'https://api.cert.tastyworks.com'
-const SANDBOX_STREAMER_URL = 'wss://streamer.cert.tastyworks.com'
+// const SANDBOX_BASE_URL = 'https://api.cert.tastyworks.com'
+const SANDBOX_BASE_URL = 'https://api.tastyworks.com'
+// const SANDBOX_STREAMER_URL = 'wss://streamer.cert.tastyworks.com'
+const SANDBOX_STREAMER_URL = 'wss://streamer.tastyworks.com'
 
 class TastytradeContext {
     public tastytradeApi: TastytradeClient
