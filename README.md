@@ -1,3 +1,10 @@
+# Mirror (gonz/master)
+
+> This repository is a mirror of the [tastytrade-api-js](https://github.com/tastytrade/tastytrade-api-js) repository. It includes changes specific to this fork under the `gonz/*` branch structure.  
+> Detailed instructions for setup and synchronization are available in [MIRROR_SETUP.md](MIRROR_SETUP.md).
+
+---
+
 # Tastytrade Api Javascript SDK
 
 ## Installation
